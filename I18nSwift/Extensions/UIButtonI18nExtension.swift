@@ -6,13 +6,13 @@
 //  Copyright © 2016 Kunstmaan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 @IBDesignable
 public extension UIButton {
     
     @IBInspectable
-    var i18nDefaultTitleKey: String {
+    public var i18nDefaultTitleKey: String {
         get { return "" }
         set {
             let defaultValue = self.titleForState(.Normal)
@@ -21,7 +21,7 @@ public extension UIButton {
     }
     
     @IBInspectable
-    var i18nHighLightedTitleKey: String {
+    public var i18nHighLightedTitleKey: String {
         get { return "" }
         set {
             let defaultValue = self.titleForState(.Normal)
@@ -30,7 +30,7 @@ public extension UIButton {
     }
     
     @IBInspectable
-    var i18nSelectedTitleKey: String {
+    public var i18nSelectedTitleKey: String {
         get { return "" }
         set {
             let defaultValue = self.titleForState(.Normal)
@@ -39,7 +39,7 @@ public extension UIButton {
     }
     
     @IBInspectable
-    var i18nDisabledTitleKey: String {
+    public var i18nDisabledTitleKey: String {
         get { return "" }
         set {
             let defaultValue = self.titleForState(.Normal)

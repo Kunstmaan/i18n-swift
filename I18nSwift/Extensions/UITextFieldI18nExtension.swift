@@ -12,7 +12,7 @@ import UIKit
 public extension UITextField {
     
     @IBInspectable
-    var i18nPlaceholderKey: String {
+    public var i18nPlaceholderKey: String {
         get { return "" }
         set {
             let defaultValue = self.attributedPlaceholder?.string ?? self.placeholder

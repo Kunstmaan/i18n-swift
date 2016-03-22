@@ -6,13 +6,13 @@
 //  Copyright © 2016 Kunstmaan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 @IBDesignable
 public extension UIImageView {
     
     @IBInspectable
-    var i18nImageBaseName: String? {
+    public var i18nImageBaseName: String? {
         get { return "" }
         set(baseName) {
             if let baseName = baseName, img = I18n.localizedImageForName(baseName) {

@@ -12,7 +12,7 @@ import UIKit
 public extension UILabel {
     
     @IBInspectable
-    var i18nTextKey: String {
+    public var i18nTextKey: String {
         get { return "" }
         set {
             let defaultValue = self.attributedText?.string ?? self.text

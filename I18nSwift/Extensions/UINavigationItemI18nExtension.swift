@@ -9,10 +9,10 @@
 import UIKit
 
 @IBDesignable
-extension UINavigationItem {
+public extension UINavigationItem {
     
     @IBInspectable
-    var i18nTitleKey: String {
+    public var i18nTitleKey: String {
         get { return "" }
         set {
             let defaultValue = self.title

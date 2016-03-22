@@ -10,15 +10,13 @@
 		8514D7CF1C9FF9D9007CE7F8 /* I18nSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 8514D7CE1C9FF9D9007CE7F8 /* I18nSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8514D7D61C9FF9D9007CE7F8 /* I18nSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8514D7CB1C9FF9D9007CE7F8 /* I18nSwift.framework */; };
 		8514D7DB1C9FF9D9007CE7F8 /* I18nSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8514D7DA1C9FF9D9007CE7F8 /* I18nSwiftTests.swift */; };
-		85D3D7E31C9FFD2900DCAB20 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D3D7E21C9FFD2900DCAB20 /* Nimble.framework */; };
-		85D3D7E51C9FFD2D00DCAB20 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85D3D7E41C9FFD2D00DCAB20 /* Quick.framework */; };
+		85C29B691CA1462B00B99931 /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7ED1C9FFEAC00DCAB20 /* I18n.swift */; };
 		85D3D7EE1C9FFEAC00DCAB20 /* StringI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7E71C9FFEAC00DCAB20 /* StringI18nExtension.swift */; };
 		85D3D7EF1C9FFEAC00DCAB20 /* UIButtonI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7E81C9FFEAC00DCAB20 /* UIButtonI18nExtension.swift */; };
 		85D3D7F01C9FFEAC00DCAB20 /* UIImageI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7E91C9FFEAC00DCAB20 /* UIImageI18nExtension.swift */; };
 		85D3D7F11C9FFEAC00DCAB20 /* UILabelI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7EA1C9FFEAC00DCAB20 /* UILabelI18nExtension.swift */; };
 		85D3D7F21C9FFEAC00DCAB20 /* UINavigationItemI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7EB1C9FFEAC00DCAB20 /* UINavigationItemI18nExtension.swift */; };
 		85D3D7F31C9FFEAC00DCAB20 /* UITextFieldI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7EC1C9FFEAC00DCAB20 /* UITextFieldI18nExtension.swift */; };
-		85D3D7F41C9FFEAC00DCAB20 /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7ED1C9FFEAC00DCAB20 /* I18n.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +36,6 @@
 		8514D7D51C9FF9D9007CE7F8 /* I18nSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = I18nSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8514D7DA1C9FF9D9007CE7F8 /* I18nSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I18nSwiftTests.swift; sourceTree = "<group>"; };
 		8514D7DC1C9FF9D9007CE7F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85D3D7E21C9FFD2900DCAB20 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = "Carthage/Checkouts/Nimble/build/Debug-iphoneos/Nimble.framework"; sourceTree = "<group>"; };
-		85D3D7E41C9FFD2D00DCAB20 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = "Carthage/Checkouts/Quick/build/Debug-iphoneos/Quick.framework"; sourceTree = "<group>"; };
 		85D3D7E71C9FFEAC00DCAB20 /* StringI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringI18nExtension.swift; sourceTree = "<group>"; };
 		85D3D7E81C9FFEAC00DCAB20 /* UIButtonI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonI18nExtension.swift; sourceTree = "<group>"; };
 		85D3D7E91C9FFEAC00DCAB20 /* UIImageI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageI18nExtension.swift; sourceTree = "<group>"; };
@@ -61,8 +57,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85D3D7E51C9FFD2D00DCAB20 /* Quick.framework in Frameworks */,
-				85D3D7E31C9FFD2900DCAB20 /* Nimble.framework in Frameworks */,
 				8514D7D61C9FF9D9007CE7F8 /* I18nSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,8 +67,6 @@
 		8514D7C11C9FF9D9007CE7F8 = {
 			isa = PBXGroup;
 			children = (
-				85D3D7E41C9FFD2D00DCAB20 /* Quick.framework */,
-				85D3D7E21C9FFD2900DCAB20 /* Nimble.framework */,
 				8514D7CD1C9FF9D9007CE7F8 /* I18nSwift */,
 				8514D7D91C9FF9D9007CE7F8 /* I18nSwiftTests */,
 				8514D7CC1C9FF9D9007CE7F8 /* Products */,
@@ -96,7 +88,7 @@
 				85D3D7E61C9FFEAC00DCAB20 /* Extensions */,
 				85D3D7ED1C9FFEAC00DCAB20 /* I18n.swift */,
 				8514D7CE1C9FF9D9007CE7F8 /* I18nSwift.h */,
-				8514D7D01C9FF9D9007CE7F8 /* Info.plist */,
+				85C29B6A1CA1478300B99931 /* Supporting Files */,
 			);
 			path = I18nSwift;
 			sourceTree = "<group>";
@@ -108,6 +100,14 @@
 				8514D7DC1C9FF9D9007CE7F8 /* Info.plist */,
 			);
 			path = I18nSwiftTests;
+			sourceTree = "<group>";
+		};
+		85C29B6A1CA1478300B99931 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8514D7D01C9FF9D9007CE7F8 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		85D3D7E61C9FFEAC00DCAB20 /* Extensions */ = {
@@ -232,9 +232,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				85D3D7F11C9FFEAC00DCAB20 /* UILabelI18nExtension.swift in Sources */,
-				85D3D7F41C9FFEAC00DCAB20 /* I18n.swift in Sources */,
 				85D3D7EE1C9FFEAC00DCAB20 /* StringI18nExtension.swift in Sources */,
 				85D3D7F21C9FFEAC00DCAB20 /* UINavigationItemI18nExtension.swift in Sources */,
+				85C29B691CA1462B00B99931 /* I18n.swift in Sources */,
 				85D3D7F31C9FFEAC00DCAB20 /* UITextFieldI18nExtension.swift in Sources */,
 				85D3D7F01C9FFEAC00DCAB20 /* UIImageI18nExtension.swift in Sources */,
 				85D3D7EF1C9FFEAC00DCAB20 /* UIButtonI18nExtension.swift in Sources */,

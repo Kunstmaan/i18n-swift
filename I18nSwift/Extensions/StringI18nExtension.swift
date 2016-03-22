@@ -6,7 +6,7 @@
 //  Copyright © 2016 Kunstmaan. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 public extension String {
     
