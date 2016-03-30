@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8514D7CA1C9FF9D9007CE7F8"
-               BuildableName = "I18nSwift.framework"
-               BlueprintName = "I18nSwift"
-               ReferencedContainer = "container:I18nSwift.xcodeproj">
+               BuildableName = "KunstmaanI18nSwift.framework"
+               BlueprintName = "KunstmaanI18nSwift"
+               ReferencedContainer = "container:KunstmaanI18nSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8514D7D41C9FF9D9007CE7F8"
-               BuildableName = "I18nSwiftTests.xctest"
-               BlueprintName = "I18nSwiftTests"
-               ReferencedContainer = "container:I18nSwift.xcodeproj">
+               BuildableName = "KunstmaanI18nSwiftTests.xctest"
+               BlueprintName = "KunstmaanI18nSwiftTests"
+               ReferencedContainer = "container:KunstmaanI18nSwift.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8514D7CA1C9FF9D9007CE7F8"
-            BuildableName = "I18nSwift.framework"
-            BlueprintName = "I18nSwift"
-            ReferencedContainer = "container:I18nSwift.xcodeproj">
+            BuildableName = "KunstmaanI18nSwift.framework"
+            BlueprintName = "KunstmaanI18nSwift"
+            ReferencedContainer = "container:KunstmaanI18nSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8514D7CA1C9FF9D9007CE7F8"
-            BuildableName = "I18nSwift.framework"
-            BlueprintName = "I18nSwift"
-            ReferencedContainer = "container:I18nSwift.xcodeproj">
+            BuildableName = "KunstmaanI18nSwift.framework"
+            BlueprintName = "KunstmaanI18nSwift"
+            ReferencedContainer = "container:KunstmaanI18nSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8514D7CA1C9FF9D9007CE7F8"
-            BuildableName = "I18nSwift.framework"
-            BlueprintName = "I18nSwift"
-            ReferencedContainer = "container:I18nSwift.xcodeproj">
+            BuildableName = "KunstmaanI18nSwift.framework"
+            BlueprintName = "KunstmaanI18nSwift"
+            ReferencedContainer = "container:KunstmaanI18nSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

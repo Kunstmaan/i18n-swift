@@ -1,6 +1,6 @@
 //
 //  UILabelL18nExtension.swift
-//  I18nSwift
+//  KunstmaanI18nSwift
 //
 //  Created by Daan Poron on 21/03/16.
 //  Copyright © 2016 Kunstmaan. All rights reserved.

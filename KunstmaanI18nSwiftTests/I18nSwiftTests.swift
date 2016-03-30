@@ -1,15 +1,15 @@
 //
-//  I18nSwiftTests.swift
-//  I18nSwiftTests
+//  KunstmaanI18nSwiftTests.swift
+//  KunstmaanI18nSwiftTests
 //
 //  Created by Daan Poron on 21/03/16.
 //  Copyright © 2016 Kunstmaan. All rights reserved.
 //
 
 import XCTest
-@testable import I18nSwift
+@testable import KunstmaanI18nSwift
 
-class I18nSwiftTests: XCTestCase {
+class KunstmaanI18nSwiftTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
