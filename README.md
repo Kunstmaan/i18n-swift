@@ -1,11 +1,16 @@
 # Kunstmaan I18n-Swift
 
 ## Features
-- [x] 
-- [x] 
-- [x] 
+- [x] Make use of the default Localizable.strings file.
+- [x] Change the language of your app without changing the device language.
+- [x] Make your images Localizable.
+- [x] Interface builder support, you can configure your localization keys directly in the Interface Builder. If no localization key is found it will fallback to the original properties for the labels to show. 
 
 ## Installation
+
+The preferred installation method of installation is using CocoaPods, this way you can configure the @IBDesignable and @IBInspectable properties in the Interface Builder. Apparently when using a standard IOS Framework these properties don't appear in the Interface Builder. 
+
+http://stackoverflow.com/questions/29933691/ibdesignable-from-external-framework
 
 ### [CocoaPods](http://cocoapods.org/?q=KunstmaanI18nSwift)
 
@@ -31,7 +36,13 @@ Then, run the following command:
 $ pod install
 ```
 
-### [Carthage](https://github.com/Carthage/Carthage)
+Finally add this to your Bridging-Header.h file:
+
+```objective-c
+#import <KunstmaanI18nSwift/KunstmaanI18nSwift.h>
+```
+
+### [Carthage](https://github.com/Carthage/Carthage) (UNTESTED)
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
 
