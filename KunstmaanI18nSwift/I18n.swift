@@ -49,8 +49,10 @@ public class I18n: NSObject {
         }
     }
     
-    public static func hasLanguage() -> Bool {
-        return I18n.instance.hasLanguage()
+    public static var hasLanguage: Bool {
+        get {
+            return nil != I18n.instance.lang
+        }
     }
     
     public static func setLanguage(lang: String) throws -> I18n.Type {
@@ -99,10 +101,6 @@ public class I18n: NSObject {
         super.init()
     }
     
-    public func hasLanguage() -> Bool {
-        return nil != self.lang
-    }
-    
     public func setLanguage(lang: String) throws {
         if lang != self.lang {
             var userInfo = [
@@ -116,7 +114,6 @@ public class I18n: NSObject {
             if let langBundle = getBundleForLanguage(lang) {
                 self.lang = lang
                 self.bundle = langBundle
-                
                 NSNotificationCenter.defaultCenter().postNotificationName(I18n.Events.OnChange, object: nil, userInfo: userInfo)
             } else {
                 throw I18nError.InvalidLanguage
