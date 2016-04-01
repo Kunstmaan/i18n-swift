@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
   spec.summary = "Framework for adding basic Localization to your project."
   spec.homepage = "https://github.com/kunstmaan/i18n-swift"
   spec.license = { type: 'MIT', file: 'LICENSE' }
-  spec.authors = { "Your Name" => 'it@kunstmaan.be' }
+  spec.authors = { "Kunstmaan" => 'labs@kunstmaan.be' }
   spec.social_media_url = "http://twitter.com/kunstmaan"
 
   spec.platform = :ios, "8.0"
