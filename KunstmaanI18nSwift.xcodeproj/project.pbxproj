@@ -10,12 +10,13 @@
 		8514D7CF1C9FF9D9007CE7F8 /* KunstmaanI18nSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 8514D7CE1C9FF9D9007CE7F8 /* KunstmaanI18nSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8514D7D61C9FF9D9007CE7F8 /* KunstmaanI18nSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8514D7CB1C9FF9D9007CE7F8 /* KunstmaanI18nSwift.framework */; };
 		8514D7DB1C9FF9D9007CE7F8 /* KunstmaanI18nSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8514D7DA1C9FF9D9007CE7F8 /* KunstmaanI18nSwiftTests.swift */; };
+		85676EFA1CC6752900123211 /* UIViewI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85676EF91CC6752900123211 /* UIViewI18nExtension.swift */; };
 		85C29B691CA1462B00B99931 /* I18n.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7ED1C9FFEAC00DCAB20 /* I18n.swift */; };
 		85D3D7EE1C9FFEAC00DCAB20 /* StringI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7E71C9FFEAC00DCAB20 /* StringI18nExtension.swift */; };
 		85D3D7EF1C9FFEAC00DCAB20 /* UIButtonI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7E81C9FFEAC00DCAB20 /* UIButtonI18nExtension.swift */; };
 		85D3D7F01C9FFEAC00DCAB20 /* UIImageI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7E91C9FFEAC00DCAB20 /* UIImageI18nExtension.swift */; };
 		85D3D7F11C9FFEAC00DCAB20 /* UILabelI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7EA1C9FFEAC00DCAB20 /* UILabelI18nExtension.swift */; };
-		85D3D7F21C9FFEAC00DCAB20 /* UINavigationItemI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7EB1C9FFEAC00DCAB20 /* UINavigationItemI18nExtension.swift */; };
+		85D3D7F21C9FFEAC00DCAB20 /* UINavigationBarI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7EB1C9FFEAC00DCAB20 /* UINavigationBarI18nExtension.swift */; };
 		85D3D7F31C9FFEAC00DCAB20 /* UITextFieldI18nExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3D7EC1C9FFEAC00DCAB20 /* UITextFieldI18nExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,11 +37,12 @@
 		8514D7D51C9FF9D9007CE7F8 /* KunstmaanI18nSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KunstmaanI18nSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8514D7DA1C9FF9D9007CE7F8 /* KunstmaanI18nSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KunstmaanI18nSwiftTests.swift; sourceTree = "<group>"; };
 		8514D7DC1C9FF9D9007CE7F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85676EF91CC6752900123211 /* UIViewI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewI18nExtension.swift; sourceTree = "<group>"; };
 		85D3D7E71C9FFEAC00DCAB20 /* StringI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringI18nExtension.swift; sourceTree = "<group>"; };
 		85D3D7E81C9FFEAC00DCAB20 /* UIButtonI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonI18nExtension.swift; sourceTree = "<group>"; };
 		85D3D7E91C9FFEAC00DCAB20 /* UIImageI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageI18nExtension.swift; sourceTree = "<group>"; };
 		85D3D7EA1C9FFEAC00DCAB20 /* UILabelI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelI18nExtension.swift; sourceTree = "<group>"; };
-		85D3D7EB1C9FFEAC00DCAB20 /* UINavigationItemI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationItemI18nExtension.swift; sourceTree = "<group>"; };
+		85D3D7EB1C9FFEAC00DCAB20 /* UINavigationBarI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarI18nExtension.swift; sourceTree = "<group>"; };
 		85D3D7EC1C9FFEAC00DCAB20 /* UITextFieldI18nExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldI18nExtension.swift; sourceTree = "<group>"; };
 		85D3D7ED1C9FFEAC00DCAB20 /* I18n.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = I18n.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,10 +116,11 @@
 			isa = PBXGroup;
 			children = (
 				85D3D7E71C9FFEAC00DCAB20 /* StringI18nExtension.swift */,
+				85676EF91CC6752900123211 /* UIViewI18nExtension.swift */,
 				85D3D7E81C9FFEAC00DCAB20 /* UIButtonI18nExtension.swift */,
 				85D3D7E91C9FFEAC00DCAB20 /* UIImageI18nExtension.swift */,
 				85D3D7EA1C9FFEAC00DCAB20 /* UILabelI18nExtension.swift */,
-				85D3D7EB1C9FFEAC00DCAB20 /* UINavigationItemI18nExtension.swift */,
+				85D3D7EB1C9FFEAC00DCAB20 /* UINavigationBarI18nExtension.swift */,
 				85D3D7EC1C9FFEAC00DCAB20 /* UITextFieldI18nExtension.swift */,
 			);
 			path = Extensions;
@@ -233,10 +236,11 @@
 			files = (
 				85D3D7F11C9FFEAC00DCAB20 /* UILabelI18nExtension.swift in Sources */,
 				85D3D7EE1C9FFEAC00DCAB20 /* StringI18nExtension.swift in Sources */,
-				85D3D7F21C9FFEAC00DCAB20 /* UINavigationItemI18nExtension.swift in Sources */,
+				85D3D7F21C9FFEAC00DCAB20 /* UINavigationBarI18nExtension.swift in Sources */,
 				85C29B691CA1462B00B99931 /* I18n.swift in Sources */,
 				85D3D7F31C9FFEAC00DCAB20 /* UITextFieldI18nExtension.swift in Sources */,
 				85D3D7F01C9FFEAC00DCAB20 /* UIImageI18nExtension.swift in Sources */,
+				85676EFA1CC6752900123211 /* UIViewI18nExtension.swift in Sources */,
 				85D3D7EF1C9FFEAC00DCAB20 /* UIButtonI18nExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

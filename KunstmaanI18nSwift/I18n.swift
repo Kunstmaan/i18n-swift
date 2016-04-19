@@ -152,7 +152,7 @@ public class I18n: NSObject {
     }
     
     public func localizedImageNameFor(name: String, lang: String?) -> String {
-        return "\(name)\(lang != nil ? " \(lang)" : ""))"
+        return "\(name)\(lang != nil ? " (\(lang!))" : "")"
     }
     
     public func clear() {
