@@ -42,11 +42,11 @@ Maybe this can be done by always appending a titleView instead of setting the ti
 extension UINavigationItem {
     
     @IBInspectable
-    var l10nTitleKey: String {
+    var i18nTitleKey: String {
         get { return "" }
         set {
             let defaultValue = self.title
-            self.title = L10N.localizedStringForKey(newValue, value: defaultValue)
+            self.title = I18n.localizedStringForKey(newValue, value: defaultValue)
         }
     }
     
