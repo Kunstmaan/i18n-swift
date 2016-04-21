@@ -6,6 +6,8 @@
 - [x] Make your images Localizable.
 - [x] Interface builder support, you can configure your localization keys directly in the Interface Builder. If no localization key is found it will fallback to the original properties for the labels to show. 
 
+Example project can be found here [i18n-swift-example](https://github.com/Kunstmaan/i18n-swift-example)
+
 ## Installation
 
 The preferred installation method of installation is using CocoaPods, this way you can configure the @IBDesignable and @IBInspectable properties in the Interface Builder. Apparently when using a standard IOS Framework these properties don't appear in the Interface Builder. 
