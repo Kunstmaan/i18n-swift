@@ -4,7 +4,7 @@
 //
 //  Created by Daan Poron on 21/03/16.
 //  Copyright © 2016 Kunstmaan. All rights reserved.
-//
+///Users/iliasv/Src/project-horizon/i18n-swift/KunstmaanI18nSwift
 
 #import <UIKit/UIKit.h>
 

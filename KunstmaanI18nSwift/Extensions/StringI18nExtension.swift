@@ -16,7 +16,7 @@ public extension String {
         }
     }
     
-    public func i18nLocalized(value: String? = nil, table: String? = nil, arguments: CVarArgType...) -> String {
+    public func i18nLocalized(_ value: String? = nil, table: String? = nil, arguments: CVarArg...) -> String {
         return I18n.instance.localizedStringForKey(self, value: value, table: table, arguments: arguments)
     }
     

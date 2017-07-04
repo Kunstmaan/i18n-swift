@@ -21,14 +21,14 @@ public extension UITextField {
         }
     }
     
-    override internal func updateTranslation(type: String, key: String) {
+    override internal func updateTranslation(_ type: String, key: String) {
         switch type {
         case "placeholder":
             let defaultValue = self.attributedPlaceholder?.string ?? self.placeholder
             let localizedValue = I18n.localizedStringForKey(key, value: defaultValue)
             
             if let attributedPlaceholder = self.attributedPlaceholder {
-                self.attributedPlaceholder = NSMutableAttributedString(string: localizedValue, attributes: attributedPlaceholder.attributesAtIndex(0, effectiveRange: nil))
+                self.attributedPlaceholder = NSMutableAttributedString(string: localizedValue, attributes: attributedPlaceholder.attributes(at: 0, effectiveRange: nil))
             } else {
                 self.placeholder = localizedValue
             }

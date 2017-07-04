@@ -21,7 +21,7 @@ public extension UINavigationBar {
         }
     }
     
-    override internal func updateTranslation(type: String, key: String) {
+    override internal func updateTranslation(_ type: String, key: String) {
         switch type {
         case "title":
             let navItem = self.topItem!

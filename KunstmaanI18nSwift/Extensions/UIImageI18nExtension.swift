@@ -23,7 +23,7 @@ public extension UIImageView {
         }
     }
     
-    override internal func updateTranslation(type: String, key: String) {
+    override internal func updateTranslation(_ type: String, key: String) {
         switch type {
         case "baseName":
             if let img = I18n.localizedImageForName(key) {

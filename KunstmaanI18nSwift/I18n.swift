@@ -8,86 +8,88 @@
 
 import Foundation
 
-public enum I18nError: ErrorType {
-    case InvalidLanguage
+public enum I18nError: Error {
+    case invalidLanguage
 }
 
-public class I18n: NSObject {
+open class I18n: NSObject {
     
     public struct Events {
         
         public static let OnChange = "be.kunstmaan.i18n.events.on_change"
         
-        private init() {}
+        fileprivate init() {}
         
     }
     
     // MARK: - Properties
-    internal static var instance = I18n()
+    internal static let instance = I18n()
     
     // MARK: - Public Methods
-    public static var possibleLanguages: [String] {
+    open class var possibleLanguages: [String] {
         get {
-            var langs = NSBundle.mainBundle().localizations
-            if let baseIndex = langs.indexOf("Base") { // remove base
-                langs.removeAtIndex(baseIndex)
+            var langs = Bundle.main.localizations
+            if let baseIndex = langs.index(of: "Base") { // remove base
+                langs.remove(at: baseIndex)
             }
             
             return langs
         }
     }
     
-    public static var language: String? {
+    open class var language: String? {
         get {
             return I18n.instance.lang
         }
     }
     
-    public static var locale: NSLocale? {
+    open class var locale: Locale? {
         get {
             return I18n.instance.getLocale()
         }
     }
     
-    public static var hasLanguage: Bool {
+    open class var hasLanguage: Bool {
         get {
             return nil != I18n.instance.lang
         }
     }
     
-    public static func setLanguage(lang: String) throws -> I18n.Type {
+    open class func setLanguage(_ lang: String) throws -> I18n.Type {
         try I18n.instance.setLanguage(lang)
         
         return I18n.self
     }
     
-    public static func isCurrentLanguage(lang: String) -> Bool {
+    open class func isCurrentLanguage(_ lang: String) -> Bool {
         return I18n.instance.isCurrentLanguage(lang)
     }
     
-    public static func localizedStringForKey(key: String, value: String? = nil, table: String? = nil, arguments: CVarArgType...) -> String {
+    open class func localizedStringForKey(_ key: String, value: String? = nil, table: String? = nil, arguments: CVarArg...) -> String {
         return I18n.instance.localizedStringForKey(key, value: value, table: table, arguments: arguments)
     }
     
-    public static func localizedImageForName(name: String) -> UIImage? {
+    open class func localizedImageForName(_ name: String) -> UIImage? {
         return I18n.instance.localizedImageForName(name)
     }
     
-    public static func clear() -> I18n.Type {
+    open class func clear() -> I18n.Type {
         I18n.instance.clear()
         
         return I18n.self
     }
     
     // MARK: - Implementation
-    private var lang: String?
-    private var bundle: NSBundle
+    fileprivate var lang: String?
+    fileprivate var bundle: Bundle
     
-    private override init() {
-        for lang in NSLocale.preferredLanguages() {
-            let langComponents = NSLocale.componentsFromLocaleIdentifier(lang)
+    fileprivate override init() {
+        UIView.swizzle()
+        
+        for lang in Locale.preferredLanguages {
+            let langComponents = Locale.components(fromIdentifier: lang)
             
-            if let langCode = langComponents[NSLocaleLanguageCode], let langBundle = getBundleForLanguage(langCode) {
+            if let langCode = langComponents[String(describing: NSLocale.Key.languageCode)], let langBundle = getBundleForLanguage(langCode) {
                 self.lang = langCode
                 self.bundle = langBundle
                 
@@ -97,11 +99,11 @@ public class I18n: NSObject {
         }
         
         self.lang = nil
-        self.bundle = NSBundle.mainBundle()
+        self.bundle = Bundle.main
         super.init()
     }
     
-    public func setLanguage(lang: String) throws {
+    open func setLanguage(_ lang: String) throws {
         if lang != self.lang {
             var userInfo = [
                 "lang": lang
@@ -114,27 +116,27 @@ public class I18n: NSObject {
             if let langBundle = getBundleForLanguage(lang) {
                 self.lang = lang
                 self.bundle = langBundle
-                NSNotificationCenter.defaultCenter().postNotificationName(I18n.Events.OnChange, object: nil, userInfo: userInfo)
+                NotificationCenter.default.post(name: Notification.Name(rawValue: I18n.Events.OnChange), object: nil, userInfo: userInfo)
             } else {
-                throw I18nError.InvalidLanguage
+                throw I18nError.invalidLanguage
             }
         }
     }
     
-    public func isCurrentLanguage(lang: String) -> Bool {
+    open func isCurrentLanguage(_ lang: String) -> Bool {
         return lang == self.lang
     }
     
-    public func getLocale() -> NSLocale? {
-        return self.lang != nil ? NSLocale(localeIdentifier: self.lang!) : nil
+    open func getLocale() -> Locale? {
+        return self.lang != nil ? Locale(identifier: self.lang!) : nil
     }
     
-    public func localizedStringForKey(key: String, value: String? = nil, table: String? = nil, arguments: CVarArgType...) -> String {
+    open func localizedStringForKey(_ key: String, value: String? = nil, table: String? = nil, arguments: CVarArg...) -> String {
         return self.localizedStringForKey(key, value: value, table: table, arguments: arguments)
     }
     
-    public func localizedStringForKey(key: String, value: String? = nil, table: String? = nil, arguments: [CVarArgType]) -> String {
-        let translatedString = self.bundle.localizedStringForKey(key.lowercaseString, value: value, table: table)
+    open func localizedStringForKey(_ key: String, value: String? = nil, table: String? = nil, arguments: [CVarArg]) -> String {
+        let translatedString = self.bundle.localizedString(forKey: key.lowercased(), value: value, table: table)
         
         if arguments.isEmpty {
             return translatedString
@@ -143,27 +145,27 @@ public class I18n: NSObject {
         return String(format: translatedString, arguments: arguments)
     }
     
-    public func localizedImageForName(name: String) -> UIImage? {
-        if !name.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()).isEmpty {
-            return UIImage(named: self.localizedImageNameFor(name, lang: self.lang?.lowercaseString))
+    open func localizedImageForName(_ name: String) -> UIImage? {
+        if !name.trimmingCharacters(in: CharacterSet.whitespaces).isEmpty {
+            return UIImage(named: self.localizedImageNameFor(name, lang: self.lang?.lowercased()))
         }
         
         return nil
     }
     
-    public func localizedImageNameFor(name: String, lang: String?) -> String {
+    open func localizedImageNameFor(_ name: String, lang: String?) -> String {
         return "\(name)\(lang != nil ? " (\(lang!))" : "")"
     }
     
-    public func clear() {
+    open func clear() {
         self.lang = nil
-        self.bundle = NSBundle.mainBundle()
+        self.bundle = Bundle.main
     }
     
 }
 
-private func getBundleForLanguage(lang: String) -> NSBundle? {
-    if let path = NSBundle.mainBundle().pathForResource(lang, ofType: "lproj"), let bundle = NSBundle(path: path) {
+private func getBundleForLanguage(_ lang: String) -> Bundle? {
+    if let path = Bundle.main.path(forResource: lang, ofType: "lproj"), let bundle = Bundle(path: path) {
         return bundle
     }
     
