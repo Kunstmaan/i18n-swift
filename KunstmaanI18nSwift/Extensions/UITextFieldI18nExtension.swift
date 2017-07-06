@@ -14,18 +14,18 @@ public extension UITextField {
     @IBInspectable
     public var i18nPlaceholderKey: String {
         get {
-            return super.retrieveI18nKey("placeholder")!
+            return super.retrieveI18nKey(forType: "placeholder")!
         }
         set {
-            super.registerI18nKey("placeholder", key: newValue)
+            super.register(i18nKey: newValue, forType: "placeholder")
         }
     }
     
-    override internal func updateTranslation(_ type: String, key: String) {
+    override internal func update(i18nKey key: String, forType type: String) {
         switch type {
         case "placeholder":
             let defaultValue = self.attributedPlaceholder?.string ?? self.placeholder
-            let localizedValue = I18n.localizedStringForKey(key, value: defaultValue)
+            let localizedValue = I18n.localizedString(forKey: key, withFallback: defaultValue)
             
             if let attributedPlaceholder = self.attributedPlaceholder {
                 self.attributedPlaceholder = NSMutableAttributedString(string: localizedValue, attributes: attributedPlaceholder.attributes(at: 0, effectiveRange: nil))

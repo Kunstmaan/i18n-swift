@@ -14,19 +14,19 @@ public extension UIImageView {
     @IBInspectable
     public var i18nImageBaseName: String? {
         get {
-            return super.retrieveI18nKey("baseName")!
+            return super.retrieveI18nKey(forType: "baseName")!
         }
         set(baseName) {
             if let baseName = baseName {
-                self.registerI18nKey("baseName", key: baseName)
+                self.register(i18nKey: baseName, forType: "baseName")
             }
         }
     }
     
-    override internal func updateTranslation(_ type: String, key: String) {
+    override internal func update(i18nKey key: String, forType type: String) {
         switch type {
         case "baseName":
-            if let img = I18n.localizedImageForName(key) {
+            if let img = I18n.localizedImage(forName: key) {
                 self.image = img
             }
             break

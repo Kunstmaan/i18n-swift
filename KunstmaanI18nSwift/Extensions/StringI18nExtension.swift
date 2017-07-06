@@ -12,12 +12,14 @@ public extension String {
     
     public var i18nLocalized: String {
         get {
-            return I18n.instance.localizedStringForKey(self)
+            
+            return I18n.instance.localizedString(forKey: self)
         }
     }
     
-    public func i18nLocalized(_ value: String? = nil, table: String? = nil, arguments: CVarArg...) -> String {
-        return I18n.instance.localizedStringForKey(self, value: value, table: table, arguments: arguments)
+    public func i18nLocalized(withFallback fallbackValue: String? = nil, withTable table: String? = nil, arguments: CVarArg...) -> String {
+        
+        return I18n.instance.localizedString(forKey: self, withFallback: fallbackValue, table: table, arguments: arguments)
     }
     
 }
