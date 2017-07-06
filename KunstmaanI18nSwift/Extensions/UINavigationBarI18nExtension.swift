@@ -14,18 +14,18 @@ public extension UINavigationBar {
     @IBInspectable
     public var i18nTitleKey: String {
         get {
-            return super.retrieveI18nKey("title")!
+            return super.retrieveI18nKey(forType: "title")!
         }
         set {
-            self.registerI18nKey("title", key: newValue)
+            self.register(i18nKey: newValue, forType: "title")
         }
     }
     
-    override internal func updateTranslation(type: String, key: String) {
+    override internal func update(i18nKey key: String, forType type: String) {
         switch type {
         case "title":
             let navItem = self.topItem!
-            navItem.title = I18n.localizedStringForKey(key, value: navItem.title)
+            navItem.title = I18n.localizedString(forKey: key, withFallback: navItem.title)
             break
         default:
             break

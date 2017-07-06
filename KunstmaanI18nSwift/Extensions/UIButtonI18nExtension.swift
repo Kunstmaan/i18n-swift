@@ -14,62 +14,62 @@ public extension UIButton {
     @IBInspectable
     public var i18nDefaultTitleKey: String {
         get {
-            return super.retrieveI18nKey("default")!
+            return super.retrieveI18nKey(forType: "default")!
         }
         set {
-            super.registerI18nKey("default", key: newValue)
+            super.register(i18nKey: newValue, forType: "default")
         }
     }
     
     @IBInspectable
     public var i18nHighLightedTitleKey: String {
         get {
-            return super.retrieveI18nKey("highlighted")!
+            return super.retrieveI18nKey(forType: "highlighted")!
         }
         set {
-            super.registerI18nKey("highlighted", key: newValue)
+            super.register(i18nKey: newValue, forType: "highlighted")
         }
     }
     
     @IBInspectable
     public var i18nSelectedTitleKey: String {
         get {
-            return super.retrieveI18nKey("selected")!
+            return super.retrieveI18nKey(forType: "selected")!
         }
         set {
-            super.registerI18nKey("selected", key: newValue)
+            super.register(i18nKey: newValue, forType: "selected")
         }
     }
     
     @IBInspectable
     public var i18nDisabledTitleKey: String {
         get {
-            return super.retrieveI18nKey("disabled")!
+            return super.retrieveI18nKey(forType: "disabled")!
         }
         set {
-            super.registerI18nKey("disabled", key: newValue)
+            super.register(i18nKey: newValue, forType: "disabled")
         }
     }
     
-    override internal func updateTranslation(type: String, key: String) {
+    override internal func update(i18nKey key: String, forType type: String) {
         let state: UIControlState
         
         switch type {
         case "highlighted":
-            state = .Highlighted
+            state = .highlighted
             break
         case "selected":
-            state = .Selected
+            state = .selected
             break
         case "disabled":
-            state = .Disabled
+            state = .disabled
             break
         default:
-            state = .Normal
+            state = UIControlState()
             break
         }
         
-        let defaultValue = self.titleForState(.Normal)
-        self.setTitle(I18n.localizedStringForKey(key, value: defaultValue), forState: state)
+        let defaultValue = self.title(for: UIControlState())
+        self.setTitle(I18n.localizedString(forKey: key, withFallback: defaultValue), for: state)
     }
 }
