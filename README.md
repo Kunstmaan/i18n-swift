@@ -29,7 +29,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'KunstmaanI18nSwift', '~> 1.0'
+pod 'KunstmaanI18nSwift', '~> 2.0'
 ```
 
 Then, run the following command:
@@ -58,7 +58,7 @@ $ brew install carthage
 To integrate KunstmaanI18nSwift into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "Kunstmaan/i18n-swift" ~> 1.0
+github "Kunstmaan/i18n-swift" ~> 2.0
 ```
 
 Run `carthage update` to build the framework and drag the built `KunstmaanI18nSwift.framework` into your Xcode project.
