@@ -41,9 +41,9 @@ extension UIView  {
         self.i18n_willMoveToWindow(newWindow)
         
         if newWindow == nil {
-            NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: I18n.Events.OnChange), object: nil)
+            NotificationCenter.default.removeObserver(self, name: I18n.Events.onChange, object: nil)
         } else {
-            NotificationCenter.default.addObserver(self, selector: #selector(UIView.updateTranslations), name: NSNotification.Name(rawValue: I18n.Events.OnChange), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(UIView.updateTranslations), name: I18n.Events.onChange, object: nil)
             self.updateTranslations()
         }
     }

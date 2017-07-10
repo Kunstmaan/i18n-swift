@@ -16,7 +16,7 @@ open class I18n: NSObject {
     
     public struct Events {
         
-        public static let OnChange = "be.kunstmaan.i18n.events.on_change"
+        public static let onChange = NSNotification.Name(rawValue: "be.kunstmaan.i18n.events.on_change")
         
         fileprivate init() {}
         
@@ -100,9 +100,9 @@ open class I18n: NSObject {
         UIView.swizzle()
         
         for lang in Locale.preferredLanguages {
-            let langComponents = Locale.components(fromIdentifier: lang)
+            let locale = Locale(identifier: lang)
             
-            if let langCode = langComponents[String(describing: NSLocale.Key.languageCode)], let langBundle = getBundle(forLang: langCode) {
+            if let langCode = locale.languageCode, let langBundle = getBundle(forLang: langCode) {
                 self.lang = langCode
                 self.bundle = langBundle
                 
@@ -129,7 +129,7 @@ open class I18n: NSObject {
             if let langBundle = getBundle(forLang: lang) {
                 self.lang = lang
                 self.bundle = langBundle
-                NotificationCenter.default.post(name: Notification.Name(rawValue: I18n.Events.OnChange), object: nil, userInfo: userInfo)
+                NotificationCenter.default.post(name: I18n.Events.onChange, object: nil, userInfo: userInfo)
             } else {
                 throw I18nError.invalidLanguage
             }
