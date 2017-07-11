@@ -74,6 +74,26 @@ open class I18n: NSObject {
         return I18n.instance.localizedString(forKey: key, withFallback: fallbackValue, table: table, arguments: arguments)
     }
     
+    open class func localizedString(forKey key: String, inLanguage lang: String, withFallback fallbackValue: String? = nil, table: String? = nil, arguments: CVarArg...) throws -> String {
+        if let langBundle = getBundle(forLang: lang) {
+            
+            return I18n.localizedString(forKey: key, usingBundle: langBundle, withFallback: fallbackValue, table: table, arguments: arguments)
+        }
+        
+        throw I18nError.invalidLanguage
+    }
+    
+    private class func localizedString(forKey key: String, usingBundle bundle: Bundle, withFallback fallbackValue: String? = nil, table: String? = nil, arguments: [CVarArg]) -> String {
+        let translatedString = bundle.localizedString(forKey: key.lowercased(), value: fallbackValue, table: table)
+        
+        if arguments.isEmpty {
+            
+            return translatedString
+        }
+        
+        return String(format: translatedString, arguments: arguments)
+    }
+    
     open class func localizedImage(forName name: String) -> UIImage? {
         
         return I18n.instance.localizedImage(forName: name)
@@ -137,6 +157,7 @@ open class I18n: NSObject {
     }
     
     open func equals(lang: String) -> Bool {
+        
         return lang == self.lang
     }
     
@@ -146,13 +167,8 @@ open class I18n: NSObject {
     }
     
     open func localizedString(forKey key: String, withFallback fallbackValue: String? = nil, table: String? = nil, arguments: [CVarArg]) -> String {
-        let translatedString = self.bundle.localizedString(forKey: key.lowercased(), value: fallbackValue, table: table)
         
-        if arguments.isEmpty {
-            return translatedString
-        }
-        
-        return String(format: translatedString, arguments: arguments)
+        return I18n.localizedString(forKey: key, usingBundle: self.bundle, withFallback: fallbackValue, table: table, arguments: arguments)
     }
     
     open func localizedImage(forName name: String) -> UIImage? {
@@ -178,6 +194,7 @@ open class I18n: NSObject {
 
 private func getBundle(forLang lang: String) -> Bundle? {
     if let path = Bundle.main.path(forResource: lang, ofType: "lproj"), let bundle = Bundle(path: path) {
+        
         return bundle
     }
     
