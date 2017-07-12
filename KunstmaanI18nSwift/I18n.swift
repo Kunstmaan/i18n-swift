@@ -118,6 +118,7 @@ open class I18n: NSObject {
     
     fileprivate override init() {
         UIView.swizzle()
+        UIViewController.swizzle()
         
         for lang in Locale.preferredLanguages {
             let locale = Locale(identifier: lang)

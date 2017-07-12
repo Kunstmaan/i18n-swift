@@ -10,21 +10,12 @@ import Foundation
 
 extension UIView  {
     
-    internal static func swizzle() {
+    internal class func swizzle() {
         for method in ["willMoveToWindow"] {
             let originalSelector = Selector("\(method):")
             let swizzledSelector = Selector("i18n_\(method):")
             
-            let originalMethod = class_getInstanceMethod(self, originalSelector)
-            let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
-            
-            let didAddMethod = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
-            
-            if didAddMethod {
-                class_replaceMethod(self, swizzledSelector, method_getImplementation(originalMethod), method_getTypeEncoding(originalMethod))
-            } else {
-                method_exchangeImplementations(originalMethod, swizzledMethod)
-            }
+            Utils.swizzle(self, originalSelector, swizzledSelector)
         }
     }
 
