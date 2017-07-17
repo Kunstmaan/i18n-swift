@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "KunstmaanI18nSwift"
-  spec.version = "2.1.1"
+  spec.version = "2.1.2"
   spec.summary = "Framework for adding basic Localization to your project."
   spec.homepage = "https://github.com/kunstmaan/i18n-swift"
   spec.license = { type: 'MIT', file: 'LICENSE' }
