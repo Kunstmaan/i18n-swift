@@ -43,8 +43,7 @@ extension UIViewController {
         NotificationCenter.default.removeObserver(self, name: I18n.Events.onChange, object: nil)
     }
     
-    @objc
-    private func updateTranslations() {
+    open func updateTranslations() {
         if let i18nTabKey = self.i18nTabKey {
             self.tabBarItem?.title = I18n.localizedString(forKey: i18nTabKey)
         }
