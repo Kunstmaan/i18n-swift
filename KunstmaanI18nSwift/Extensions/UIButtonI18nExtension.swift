@@ -70,6 +70,6 @@ public extension UIButton {
         }
         
         let defaultValue = self.title(for: UIControlState())
-        self.setTitle(I18n.localizedString(forKey: key, withFallback: defaultValue), for: state)
+        self.setTitle(self.localizedString(forKey: key, withFallback: defaultValue), for: state)
     }
 }
