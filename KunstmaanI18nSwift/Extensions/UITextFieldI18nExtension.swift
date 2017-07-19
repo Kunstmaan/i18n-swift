@@ -25,7 +25,7 @@ public extension UITextField {
         switch type {
         case "placeholder":
             let defaultValue = self.attributedPlaceholder?.string ?? self.placeholder
-            let localizedValue = I18n.localizedString(forKey: key, withFallback: defaultValue)
+            let localizedValue = self.localizedString(forKey: key, withFallback: defaultValue)
             
             if let attributedPlaceholder = self.attributedPlaceholder {
                 self.attributedPlaceholder = NSMutableAttributedString(string: localizedValue, attributes: attributedPlaceholder.attributes(at: 0, effectiveRange: nil))

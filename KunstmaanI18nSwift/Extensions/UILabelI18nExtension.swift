@@ -25,7 +25,7 @@ public extension UILabel {
         switch type {
         case "text":
             let defaultValue = self.attributedText?.string ?? self.text
-            let localizedValue = I18n.localizedString(forKey: key, withFallback: defaultValue)
+            let localizedValue = self.localizedString(forKey: key, withFallback: defaultValue)
             
             if let attributedText = self.attributedText {
                 self.attributedText = NSMutableAttributedString(string: localizedValue, attributes: attributedText.attributes(at: 0, effectiveRange: nil))

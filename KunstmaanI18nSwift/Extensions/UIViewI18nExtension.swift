@@ -8,7 +8,20 @@
 
 import Foundation
 
+@IBDesignable
 extension UIView  {
+
+    @IBInspectable
+    open var i18nShouldUppercase : Bool
+    {
+        get {
+            
+            return objc_getAssociatedObject(self, &AssociatedBool.i18nShouldUppercase) as? Bool ?? false
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedBool.i18nShouldUppercase, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
     
     internal class func swizzle() {
         for method in ["willMoveToWindow"] {
@@ -21,6 +34,10 @@ extension UIView  {
 
     fileprivate struct AssociatedKeys {
         static var i18nKeys = "i18nKeys"
+    }
+    
+    fileprivate struct AssociatedBool {
+        static var i18nShouldUppercase = "i18nShouldUppercase"
     }
     
     fileprivate func getI18nKeys() -> [String: String]? {
@@ -37,6 +54,14 @@ extension UIView  {
             NotificationCenter.default.addObserver(self, selector: #selector(UIView.updateTranslations), name: I18n.Events.onChange, object: nil)
             self.updateTranslations()
         }
+    }
+    
+    internal func localizedString(forKey key: String, withFallback fallback: String? = nil) -> String {
+        let translated = I18n.localizedString(forKey: key, withFallback: fallback)
+        
+        return self.i18nShouldUppercase
+            ? translated.uppercased()
+            : translated
     }
     
     public func updateTranslations() {

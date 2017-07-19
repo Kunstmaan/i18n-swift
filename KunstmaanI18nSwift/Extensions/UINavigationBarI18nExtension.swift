@@ -25,7 +25,7 @@ public extension UINavigationBar {
         switch type {
         case "title":
             let navItem = self.topItem!
-            navItem.title = I18n.localizedString(forKey: key, withFallback: navItem.title)
+            navItem.title = self.localizedString(forKey: key, withFallback: navItem.title)
             break
         default:
             break
