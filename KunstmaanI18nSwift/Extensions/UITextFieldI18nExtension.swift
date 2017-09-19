@@ -21,7 +21,7 @@ public extension UITextField {
         }
     }
     
-    override internal func update(i18nKey key: String, forType type: String) {
+    override public func update(i18nKey key: String, forType type: String) {
         switch type {
         case "placeholder":
             let defaultValue = self.attributedPlaceholder?.string ?? self.placeholder

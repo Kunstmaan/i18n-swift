@@ -21,7 +21,7 @@ public extension UINavigationBar {
         }
     }
     
-    override internal func update(i18nKey key: String, forType type: String) {
+    override public func update(i18nKey key: String, forType type: String) {
         switch type {
         case "title":
             let navItem = self.topItem!
