@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public extension UITextField {
+extension UITextField {
     
     @IBInspectable
     public var i18nPlaceholderKey: String {

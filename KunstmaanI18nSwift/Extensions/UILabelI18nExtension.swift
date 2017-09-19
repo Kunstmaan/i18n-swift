@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public extension UILabel {
+extension UILabel {
     
     @IBInspectable
     public var i18nTextKey: String {

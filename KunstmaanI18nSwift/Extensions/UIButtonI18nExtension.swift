@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public extension UIButton {
+extension UIButton {
     
     @IBInspectable
     public var i18nDefaultTitleKey: String {

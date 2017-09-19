@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public extension UIImageView {
+extension UIImageView {
     
     @IBInspectable
     public var i18nImageBaseName: String? {

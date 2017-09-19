@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-public extension UINavigationBar {
+extension UINavigationBar {
     
     @IBInspectable
     public var i18nTitleKey: String {
