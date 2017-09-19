@@ -56,7 +56,7 @@ extension UIView  {
         }
     }
     
-    internal func localizedString(forKey key: String, withFallback fallback: String? = nil) -> String {
+    public func localizedString(forKey key: String, withFallback fallback: String? = nil) -> String {
         let translated = I18n.localizedString(forKey: key, withFallback: fallback)
         
         return self.i18nShouldUppercase
@@ -72,11 +72,11 @@ extension UIView  {
         }
     }
     
-    internal func retrieveI18nKey(forType type: String) -> String? {
+    public func retrieveI18nKey(forType type: String) -> String? {
         return self.getI18nKeys()?[type]
     }
     
-    internal func register(i18nKey key: String, forType type: String) {
+    public func register(i18nKey key: String, forType type: String) {
         var keys = getI18nKeys()
         
         if keys == nil {
@@ -90,6 +90,6 @@ extension UIView  {
         self.update(i18nKey: key, forType: type)
     }
     
-    internal func update(i18nKey key: String, forType type: String) { /* Should be overriden */ }
+    open func update(i18nKey key: String, forType type: String) { /* Should be overriden */ }
     
 }
