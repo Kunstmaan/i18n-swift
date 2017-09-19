@@ -21,7 +21,7 @@ public extension UILabel {
         }
     }
     
-    override public func update(i18nKey key: String, forType type: String) {
+    override open func update(i18nKey key: String, forType type: String) {
         switch type {
         case "text":
             let defaultValue = self.attributedText?.string ?? self.text

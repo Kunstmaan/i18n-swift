@@ -23,7 +23,7 @@ public extension UIImageView {
         }
     }
     
-    override public func update(i18nKey key: String, forType type: String) {
+    override open func update(i18nKey key: String, forType type: String) {
         switch type {
         case "baseName":
             if let img = I18n.localizedImage(forName: key) {

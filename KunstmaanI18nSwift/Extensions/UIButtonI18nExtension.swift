@@ -51,7 +51,7 @@ public extension UIButton {
         }
     }
     
-    override public func update(i18nKey key: String, forType type: String) {
+    override open func update(i18nKey key: String, forType type: String) {
         let state: UIControlState
         
         switch type {
