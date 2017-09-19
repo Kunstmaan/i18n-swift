@@ -10,16 +10,21 @@ import Foundation
 
 @IBDesignable
 extension UIView  {
+    
+    fileprivate struct AssociatedKeys {
+        static var i18nKeys = "i18nKeys"
+        static var i18nShouldUppercase = "i18nShouldUppercase"
+    }
 
     @IBInspectable
     open var i18nShouldUppercase : Bool
     {
         get {
             
-            return objc_getAssociatedObject(self, &AssociatedBool.i18nShouldUppercase) as? Bool ?? false
+            return objc_getAssociatedObject(self, &AssociatedKeys.i18nShouldUppercase) as? Bool ?? false
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedBool.i18nShouldUppercase, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.i18nShouldUppercase, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -30,14 +35,6 @@ extension UIView  {
             
             Utils.swizzle(self, originalSelector, swizzledSelector)
         }
-    }
-
-    fileprivate struct AssociatedKeys {
-        static var i18nKeys = "i18nKeys"
-    }
-    
-    fileprivate struct AssociatedBool {
-        static var i18nShouldUppercase = "i18nShouldUppercase"
     }
     
     fileprivate func getI18nKeys() -> [String: String]? {
