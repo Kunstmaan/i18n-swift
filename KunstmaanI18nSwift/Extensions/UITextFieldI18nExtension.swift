@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-extension UITextField {
+extension UITextField: I18nLocalizableDelegate {
     
     @IBInspectable
     public var i18nPlaceholderKey: String {
@@ -17,11 +17,12 @@ extension UITextField {
             return super.retrieveI18nKey(forType: "placeholder")!
         }
         set {
+            self.i18nLocalizableDelegate = self
             super.register(i18nKey: newValue, forType: "placeholder")
         }
     }
     
-    override open func update(i18nKey key: String, forType type: String) {
+    public func update(i18nKey key: String, forType type: String) {
         switch type {
         case "placeholder":
             let defaultValue = self.attributedPlaceholder?.string ?? self.placeholder

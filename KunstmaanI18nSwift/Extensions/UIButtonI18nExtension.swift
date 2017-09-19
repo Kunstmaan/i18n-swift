@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-extension UIButton {
+extension UIButton: I18nLocalizableDelegate {
     
     @IBInspectable
     public var i18nDefaultTitleKey: String {
@@ -17,6 +17,7 @@ extension UIButton {
             return super.retrieveI18nKey(forType: "default")!
         }
         set {
+            self.i18nLocalizableDelegate = self
             super.register(i18nKey: newValue, forType: "default")
         }
     }
@@ -27,6 +28,7 @@ extension UIButton {
             return super.retrieveI18nKey(forType: "highlighted")!
         }
         set {
+            self.i18nLocalizableDelegate = self
             super.register(i18nKey: newValue, forType: "highlighted")
         }
     }
@@ -37,6 +39,7 @@ extension UIButton {
             return super.retrieveI18nKey(forType: "selected")!
         }
         set {
+            self.i18nLocalizableDelegate = self
             super.register(i18nKey: newValue, forType: "selected")
         }
     }
@@ -47,11 +50,12 @@ extension UIButton {
             return super.retrieveI18nKey(forType: "disabled")!
         }
         set {
+            self.i18nLocalizableDelegate = self
             super.register(i18nKey: newValue, forType: "disabled")
         }
     }
     
-    override open func update(i18nKey key: String, forType type: String) {
+    public func update(i18nKey key: String, forType type: String) {
         let state: UIControlState
         
         switch type {
@@ -72,4 +76,5 @@ extension UIButton {
         let defaultValue = self.title(for: UIControlState())
         self.setTitle(self.localizedString(forKey: key, withFallback: defaultValue), for: state)
     }
+    
 }

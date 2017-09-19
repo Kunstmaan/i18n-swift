@@ -8,18 +8,40 @@
 
 import Foundation
 
+public protocol I18nLocalizableDelegate {
+    
+    func update(i18nKey key: String, forType type: String)
+    
+}
+
 @IBDesignable
 extension UIView  {
+    
+    fileprivate struct AssociatedKeys {
+        static var i18nKeys = "i18nKeys"
+        static var i18nLocalizableDelegate = "i18nLocalizableDelegate"
+        static var i18nShouldUppercase = "i18nShouldUppercase"
+    }
 
     @IBInspectable
     open var i18nShouldUppercase : Bool
     {
         get {
             
-            return objc_getAssociatedObject(self, &AssociatedBool.i18nShouldUppercase) as? Bool ?? false
+            return objc_getAssociatedObject(self, &AssociatedKeys.i18nShouldUppercase) as? Bool ?? false
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedBool.i18nShouldUppercase, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.i18nShouldUppercase, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    public var i18nLocalizableDelegate: I18nLocalizableDelegate? {
+        get {
+            
+            return objc_getAssociatedObject(self, &AssociatedKeys.i18nLocalizableDelegate) as? I18nLocalizableDelegate
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.i18nLocalizableDelegate, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -30,14 +52,6 @@ extension UIView  {
             
             Utils.swizzle(self, originalSelector, swizzledSelector)
         }
-    }
-
-    fileprivate struct AssociatedKeys {
-        static var i18nKeys = "i18nKeys"
-    }
-    
-    fileprivate struct AssociatedBool {
-        static var i18nShouldUppercase = "i18nShouldUppercase"
     }
     
     fileprivate func getI18nKeys() -> [String: String]? {
@@ -67,7 +81,7 @@ extension UIView  {
     public func updateTranslations() {
         if let i18nKeys = self.getI18nKeys() {
             for (type, key) in i18nKeys {
-                self.update(i18nKey: key, forType: type)
+                self.i18nLocalizableDelegate?.update(i18nKey: key, forType: type)
             }
         }
     }
@@ -87,9 +101,7 @@ extension UIView  {
         
         objc_setAssociatedObject(self, &AssociatedKeys.i18nKeys, keys!, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         
-        self.update(i18nKey: key, forType: type)
+        self.i18nLocalizableDelegate?.update(i18nKey: key, forType: type)
     }
-    
-    open func update(i18nKey key: String, forType type: String) { /* Should be overriden */ }
     
 }
