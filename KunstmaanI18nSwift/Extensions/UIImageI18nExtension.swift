@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-extension UIImageView: I18nLocalizableDelegate {
+extension UIImageView {
     
     @IBInspectable
     public var i18nImageBaseName: String? {
@@ -18,13 +18,12 @@ extension UIImageView: I18nLocalizableDelegate {
         }
         set(baseName) {
             if let baseName = baseName {
-                self.i18nLocalizableDelegate = self
                 self.register(i18nKey: baseName, forType: "baseName")
             }
         }
     }
     
-    public func update(i18nKey key: String, forType type: String) {
+    override open func update(i18nKey key: String, forType type: String) {
         switch type {
         case "baseName":
             if let img = I18n.localizedImage(forName: key) {

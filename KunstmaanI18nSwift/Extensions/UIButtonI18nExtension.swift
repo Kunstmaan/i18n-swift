@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-extension UIButton: I18nLocalizableDelegate {
+extension UIButton {
     
     @IBInspectable
     public var i18nDefaultTitleKey: String {
@@ -17,7 +17,6 @@ extension UIButton: I18nLocalizableDelegate {
             return super.retrieveI18nKey(forType: "default")!
         }
         set {
-            self.i18nLocalizableDelegate = self
             super.register(i18nKey: newValue, forType: "default")
         }
     }
@@ -28,7 +27,6 @@ extension UIButton: I18nLocalizableDelegate {
             return super.retrieveI18nKey(forType: "highlighted")!
         }
         set {
-            self.i18nLocalizableDelegate = self
             super.register(i18nKey: newValue, forType: "highlighted")
         }
     }
@@ -39,7 +37,6 @@ extension UIButton: I18nLocalizableDelegate {
             return super.retrieveI18nKey(forType: "selected")!
         }
         set {
-            self.i18nLocalizableDelegate = self
             super.register(i18nKey: newValue, forType: "selected")
         }
     }
@@ -50,12 +47,11 @@ extension UIButton: I18nLocalizableDelegate {
             return super.retrieveI18nKey(forType: "disabled")!
         }
         set {
-            self.i18nLocalizableDelegate = self
             super.register(i18nKey: newValue, forType: "disabled")
         }
     }
     
-    public func update(i18nKey key: String, forType type: String) {
+    override open func update(i18nKey key: String, forType type: String) {
         let state: UIControlState
         
         switch type {
@@ -76,5 +72,4 @@ extension UIButton: I18nLocalizableDelegate {
         let defaultValue = self.title(for: UIControlState())
         self.setTitle(self.localizedString(forKey: key, withFallback: defaultValue), for: state)
     }
-    
 }

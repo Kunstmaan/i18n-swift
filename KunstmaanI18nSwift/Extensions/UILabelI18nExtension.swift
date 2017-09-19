@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-extension UILabel: I18nLocalizableDelegate {
+extension UILabel {
     
     @IBInspectable
     public var i18nTextKey: String {
@@ -17,12 +17,11 @@ extension UILabel: I18nLocalizableDelegate {
             return super.retrieveI18nKey(forType: "text")!
         }
         set {
-            self.i18nLocalizableDelegate = self
             super.register(i18nKey: newValue, forType: "text")
         }
     }
     
-    public func update(i18nKey key: String, forType type: String) {
+    override open func update(i18nKey key: String, forType type: String) {
         switch type {
         case "text":
             let defaultValue = self.attributedText?.string ?? self.text

@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-extension UINavigationBar: I18nLocalizableDelegate {
+extension UINavigationBar {
     
     @IBInspectable
     public var i18nTitleKey: String {
@@ -17,12 +17,11 @@ extension UINavigationBar: I18nLocalizableDelegate {
             return super.retrieveI18nKey(forType: "title")!
         }
         set {
-            self.i18nLocalizableDelegate = self
             self.register(i18nKey: newValue, forType: "title")
         }
     }
     
-    public func update(i18nKey key: String, forType type: String) {
+    override open func update(i18nKey key: String, forType type: String) {
         switch type {
         case "title":
             let navItem = self.topItem!
