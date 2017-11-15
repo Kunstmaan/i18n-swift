@@ -61,7 +61,7 @@ extension UIView  {
             : translated
     }
     
-    public func updateTranslations() {
+    @objc public func updateTranslations() {
         if let i18nKeys = self.getI18nKeys() {
             for (type, key) in i18nKeys {
                 self.update(i18nKey: key, forType: type)
@@ -87,6 +87,6 @@ extension UIView  {
         self.update(i18nKey: key, forType: type)
     }
     
-    open func update(i18nKey key: String, forType type: String) { /* Should be overriden */ }
+    @objc open func update(i18nKey key: String, forType type: String) { /* Should be overriden */ }
     
 }

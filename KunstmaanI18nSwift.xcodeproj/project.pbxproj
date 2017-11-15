@@ -202,7 +202,7 @@
 				TargetAttributes = {
 					8514D7CA1C9FF9D9007CE7F8 = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0910;
 					};
 					8514D7D41C9FF9D9007CE7F8 = {
 						CreatedOnToolsVersion = 7.2;
@@ -392,7 +392,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -411,7 +412,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = be.kunstmaan.I18nSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

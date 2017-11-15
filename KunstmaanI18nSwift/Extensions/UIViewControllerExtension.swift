@@ -10,12 +10,12 @@ import Foundation
 
 extension UIViewController {
     
-    open var i18nTabKey: String? {
+    @objc open var i18nTabKey: String? {
         
         return nil
     }
     
-    open var i18nNavKey: String? {
+    @objc open var i18nNavKey: String? {
         
         return nil
     }
@@ -30,20 +30,20 @@ extension UIViewController {
         Utils.swizzle(self, originalDidDisappearrSelector, swizzledDidDisappearSelector)
     }
     
-    func i18n_viewWillAppear(_ animated: Bool) {
+    @objc func i18n_viewWillAppear(_ animated: Bool) {
         self.i18n_viewWillAppear(animated)
         
         self.updateTranslations()
         NotificationCenter.default.addObserver(self, selector: #selector(UITabBarController.updateTranslations), name: I18n.Events.onChange, object: nil)
     }
     
-    func i18n_viewDidDisappear(_ animated: Bool) {
+    @objc func i18n_viewDidDisappear(_ animated: Bool) {
         self.i18n_viewDidDisappear(animated)
         
         NotificationCenter.default.removeObserver(self, name: I18n.Events.onChange, object: nil)
     }
     
-    open func updateTranslations() {
+    @objc open func updateTranslations() {
         if let i18nTabKey = self.i18nTabKey {
             self.tabBarItem?.title = I18n.localizedString(forKey: i18nTabKey)
         }
