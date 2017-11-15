@@ -27,7 +27,7 @@ extension UILabel {
             let defaultValue = self.attributedText?.string ?? self.text
             let localizedValue = self.localizedString(forKey: key, withFallback: defaultValue)
             
-            if let attributedText = self.attributedText, attributedText.length > 0 && localizedValue.characters.count > 0 {
+            if let attributedText = self.attributedText, attributedText.length > 0 && localizedValue.count > 0 {
                 self.attributedText = NSMutableAttributedString(string: localizedValue, attributes: attributedText.attributes(at: 0, longestEffectiveRange: nil, in: NSRange(location: 0, length: attributedText.length)))
             } else {
                 self.text = localizedValue
